@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %}
+<div class="grid grid-cols-1 gap-5 p-5">
+    <div class="grid grid-cols-1 max-[640px]:w-full w-[600px] mx-auto">
+        <div class="bg-slate-700 text-white text-sm h-10 flex items-center justify-center
+        font-bold">Patient Data Form</div>
+        <form action="/" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm
+        bg-slate-200 p-5 border-[1px] border-slate-700">
+            <div class="grid grid-cols-1 col-span-2 border-[1px] border-sky-700">
+                <p class="flex items-center font-bold h-8 bg-sky-700 px-1 md:px-2 text-white">Date of Birth</p>
+                <input type="date" class="w-full h-8 px-1 md:px-2" name="dob">
+            </div>
+            <div class="grid grid-cols-1 border-[1px] border-sky-700">
+                <p class="flex items-center font-bold h-8 bg-sky-700 px-1 md:px-2 text-white">Height (CM)</p>
+                <input type="text" class="w-full h-8 px-1 md:px-2" name="height">
+            </div>
+            <div class="grid grid-cols-1 border-[1px] border-sky-700">
+                <p class="flex items-center font-bold h-8 bg-sky-700 px-1 md:px-2 text-white">Weight (KG)</p>
+                <input type="text" class="w-full h-8 px-1 md:px-2" name="weight">
+            </div>
+            <div class="grid grid-cols-1 border-[1px] border-sky-700">
+                <p class="flex items-center font-bold h-8 bg-sky-700 px-1 md:px-2 text-white">HbA1c</p>
+                <input type="text" class="w-full h-8 px-1 md:px-2" name="hba1c">
+            </div>
+            <div class="grid grid-cols-1 border-[1px] border-sky-700">
+                <p class="flex items-center font-bold h-8 bg-sky-700 px-1 md:px-2 text-white">Glucose</p>
+                <input type="text" class="w-full h-8 px-1 md:px-2" name="glucose">
+            </div>
+            <div class="col-span-2">
+                <button type="submit" class="px-3 py-1 bg-slate-700 text-white font-bold">Predict</button>
+            </div>
+        </form>
+    </div>
+    <div class="grid grid-cols-1 max-[640px]:w-full w-[600px] mx-auto">
+        <div class="bg-slate-700 text-white text-sm h-10 flex items-center justify-center
+        font-bold">Response</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm bg-slate-200 p-5 border-[1px] border-slate-700">
+            <div class="grid grid-cols-10 border-[1px] border-purple-700">
+                <p class="flex items-center justify-center col-span-4 px-2 font-bold bg-purple-700
+                text-white h-8">Age</p>
+                <p class="flex items-center justify-center col-span-6 px-2 h-8 bg-white font-bold">{{age}}</p>
+            </div>
+            <div class="grid grid-cols-10 border-[1px] border-purple-700">
+                <p class="flex items-center justify-center col-span-4 px-2 font-bold bg-purple-700
+                text-white h-8">BMI</p>
+                <p class="flex items-center justify-center col-span-6 px-2 h-8 bg-white font-bold">{{bmi}}</p>
+            </div>
+            <div class="col-span-2 bg-white border-[1px] border-slate-600 px-2 py-1 flex items-center
+            justify-center font-semibold min-h-8">
+                {% if dbt == 0 %}
+                    The Model Predicted the Patient to be Healthy
+                {% elif dbt == 1 %}
+                    The Model Predicted the Patient to be Diagnosed with Diabetes
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

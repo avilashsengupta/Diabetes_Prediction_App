@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes - {% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</head>
+<body>
+    <nav class="flex justify-between px-3 items-center h-12 bg-slate-900 text-white space-x-3">
+        <div class="text-base md:text-lg font-bold">Diabetes Data</div>
+    </nav>
+    {% block body %} {% endblock body %}
+</body>
+</html>
