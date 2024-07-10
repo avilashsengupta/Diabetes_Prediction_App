@@ -12,4 +12,4 @@
   <li>Flask App Development</li>
 </ul>
 <p>The file <b>diabetes.py</b> contains the code for analysis and prediction of diabetes</p>
-<p>Selected features - Age, BMI, HbA1c, Glucose Level</p>
+<p>Random Forest Classifier is used to calculate feature importances and used as prediction model</p>
